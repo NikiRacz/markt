@@ -1,6 +1,7 @@
 package de.acme.backend.controller;
 
 import de.acme.backend.domain.Product;
+import de.acme.backend.dto.CreateProductDto;
 import de.acme.backend.service.ProductService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +15,12 @@ public class ProductController {
 
     public ProductController(ProductService ps){ this.productService = ps; }
     @GetMapping("all")
-    public List<Product> showAll (){
+    public List<CreateProductDto> showAll (){
         return this.productService.getAll();
     }
 
     @PostMapping("new")
-    public Product addNew(@RequestBody Product product){
+    public CreateProductDto addNew(@RequestBody CreateProductDto product){
         return this.productService.addNew(product);
     }
 
@@ -29,7 +30,7 @@ public class ProductController {
     }
 
     @PutMapping("product/{id}")
-    public Optional<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product){
+    public CreateProductDto updateProduct(@PathVariable("id") long id, @RequestBody CreateProductDto product){
         return this.productService.updateItem(id, product);
     }
 
