@@ -10,6 +10,16 @@ services:
       - 'POSTGRES_PASSWORD=secret'
     volumes:
       - postgres:/var/lib/postgresql/data
+    networks:
+      - backend
+
+  bckend:
+    image: 'nikirc/markt_backend:0.0.1'
+    ports:
+      - '8000:8080'
+    networks:
+      - backend
+
   pgadmin:
     image: 'dpage/pgadmin4:latest'
     ports:
@@ -22,3 +32,6 @@ services:
 volumes:
   postgres:
   pgdata:
+
+networks:
+  backend:
