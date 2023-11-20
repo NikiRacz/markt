@@ -38,9 +38,6 @@ public class PurchaseService {
     public CreatePurchaseDto updatePurchase(long id, CreatePurchaseDto purchaseDto){
         Optional<Purchase> purchaseToUpdate = this.purchaseRepo.findById(id);
         Purchase updatedPurchase = purchaseToUpdate.get();
-        if(purchaseDto.getPurchaseItem() != null){
-            updatedPurchase.setPurchaseItem(purchaseDto.getPurchaseItem());
-        }
         if(purchaseDto.getCostumer() != null){
             updatedPurchase.setCostumer(purchaseDto.getCostumer());
         }

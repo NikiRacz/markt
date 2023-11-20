@@ -5,13 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "purchaseItem")
+@Table(name = "Item")
 @Data
 @NoArgsConstructor
 public class PurchaseItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @OneToOne
+    @JoinColumn(name="id")
     private Product product;
     private int amount;
     private int price;

@@ -18,7 +18,6 @@ public class CreatePurchaseDto {
 
     public Purchase dtoToEntity(CreatePurchaseDto purchaseDto){
         var purchase = new Purchase();
-        purchase.setPurchaseItem(purchaseDto.getPurchaseItem());
         purchase.setCostumer(purchaseDto.getCostumer());
         purchase.setSumPrice(purchaseDto.getSumPrice());
         purchase.setDatum(purchaseDto.getDatum());
@@ -27,7 +26,6 @@ public class CreatePurchaseDto {
 
     public CreatePurchaseDto entityToDto(Purchase purchase){
         var purchaseDto = new CreatePurchaseDto();
-        purchaseDto.setPurchaseItem(purchase.getPurchaseItem());
         purchaseDto.setCostumer(purchase.getCostumer());
         purchaseDto.setSumPrice(purchase.getSumPrice());
         purchaseDto.setDatum(purchase.getDatum());
